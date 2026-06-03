@@ -27,4 +27,8 @@ program.action(async () => {
   }
 });
 
+program.addHelpText('after', `
+GitHub Repository: https://github.com/first087/agy-switch
+`);
+
 program.parse(process.argv);
