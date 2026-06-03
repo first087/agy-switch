@@ -13,11 +13,10 @@
   "module": "index.ts",
   "type": "module",
   "bin": {
-    "agys": "index.ts"
+    "agys": "dist/index.js"
   },
   "files": [
-    "src",
-    "index.ts"
+    "dist"
   ],
   "scripts": {
     "start": "bun run index.ts",
