@@ -22,8 +22,9 @@
   "scripts": {
     "start": "bun run index.ts",
     "test": "bun test",
-    "build": "bun build index.ts --outdir ./dist --target bun --minify",
-    "lint": "bunx tsc --noEmit"
+    "build": "rm -rf dist && bun build index.ts --outdir ./dist --target bun --minify",
+    "lint": "bunx tsc --noEmit",
+    "publish:npm": "bun run build && npm publish --access public"
   },
   "license": "MIT",
   "keywords": [

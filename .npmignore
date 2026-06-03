@@ -1,0 +1,6 @@
+**/*.test.ts
+.git
+.env
+.idea
+*.log
+tsconfig.json
