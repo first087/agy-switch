@@ -20,11 +20,13 @@ bun install -g @first087/agys
 ## Usage
 
 ### Add a new account
+
 ```bash
 agys add <name>
 ```
 
 ### List all accounts
+
 ```bash
 agys list
 # or
@@ -32,7 +34,9 @@ agys ls
 ```
 
 ### Switch account
+
 Run `agys` without any arguments to open the interactive selection menu:
+
 ```bash
 agys
 # or explicitly

@@ -12,7 +12,12 @@ export const addCommand = new Command("add")
       addCommand.outputHelp();
       return;
     }
-    const sourcePath = path.join(os.homedir(), ".gemini", "antigravity-cli", "antigravity-oauth-token");
+    const sourcePath = path.join(
+      os.homedir(),
+      ".gemini",
+      "antigravity-cli",
+      "antigravity-oauth-token",
+    );
     try {
       await fileOps.copyTokenToAccount(name, sourcePath);
       console.log(chalk.green(`Account '${name}' added successfully.`));
