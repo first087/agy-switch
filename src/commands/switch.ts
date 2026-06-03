@@ -12,7 +12,7 @@ export async function handleSwitch() {
     const active = await fileOps.getActiveAccount();
     
     if (accounts.length === 0) {
-      console.log(chalk.yellow("No accounts found. Use 'add' to create one."));
+      console.log(chalk.yellow("No accounts found. Use 'agys add' to create one."));
       return;
     }
 
@@ -20,7 +20,10 @@ export async function handleSwitch() {
         type: 'select',
         name: 'selectedAccount',
         message: 'Select account (Press Ctrl+C to cancel):',
-        choices: accounts,
+        choices: accounts.map(account => ({
+          name: account === active ? `${account} (active)` : account,
+          value: account
+        })),
         default: active
       }]).catch(() => {
         console.log(chalk.yellow("\nSwitching cancelled."));
