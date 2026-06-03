@@ -13,7 +13,7 @@ async function listAction() {
     }
 
     console.log(chalk.blue("Accounts:"));
-    accounts.forEach((account) => {
+    accounts.forEach((account: string) => {
       if (account === active) {
         console.log(chalk.green(`* ${account} (active)`));
       } else {

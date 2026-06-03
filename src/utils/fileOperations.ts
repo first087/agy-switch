@@ -1,11 +1,9 @@
 import fs from 'fs-extra';
 import path from 'path';
 import os from 'os';
-import crypto from 'crypto';
 
 const CONFIG_DIR = path.join(os.homedir(), '.agys');
 const ACTIVE_FILE = path.join(CONFIG_DIR, '.active');
-const TOKEN_PATH = path.join(os.homedir(), '.gemini', 'antigravity-cli', 'antigravity-oauth-token');
 
 export async function ensureConfigDir() {
   await fs.ensureDir(CONFIG_DIR);
@@ -21,7 +19,7 @@ export async function copyTokenToAccount(accountName: string, sourcePath: string
 export async function getAccounts() {
   await ensureConfigDir();
   const files = await fs.readdir(CONFIG_DIR);
-  return files.filter(file => file !== '.active');
+  return files.filter((file: string) => file !== '.active');
 }
 
 export async function setActiveAccount(accountName: string) {

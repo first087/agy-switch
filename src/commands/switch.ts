@@ -20,7 +20,7 @@ export async function handleSwitch() {
         type: 'select',
         name: 'selectedAccount',
         message: 'Select account (Press Ctrl+C to cancel):',
-        choices: accounts.map(account => ({
+        choices: accounts.map((account: string) => ({
           name: account === active ? `${account} (active)` : account,
           value: account
         })),

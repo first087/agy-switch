@@ -1,4 +1,4 @@
-import { expect, test, mock, spyOn } from "bun:test";
+import { expect, test, spyOn } from "bun:test";
 import * as fileOps from "../utils/fileOperations";
 
 // Mocking the utility function

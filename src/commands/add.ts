@@ -1,5 +1,6 @@
 import { Command } from "commander";
 import * as fileOps from "../utils/fileOperations";
+import chalk from "chalk";
 import os from "os";
 import path from "path";
 
