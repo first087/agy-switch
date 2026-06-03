@@ -1,10 +1,41 @@
 {
-  "name": "agy-switch",
+  "name": "agys",
+  "version": "0.1.0",
+  "description": "Manage multiple antigravity-cli oauth token accounts",
+  "author": "Artit Kiuwilai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/first087/agy-switch.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "module": "index.ts",
   "type": "module",
-  "private": true,
+  "bin": {
+    "agys": "index.ts"
+  },
+  "files": [
+    "src",
+    "index.ts"
+  ],
+  "scripts": {
+    "start": "bun run index.ts",
+    "test": "bun test",
+    "build": "rm -rf dist && bun build index.ts --outdir ./dist --target bun --minify",
+    "lint": "bunx tsc --noEmit",
+    "publish:npm": "bun run build && npm publish --access public"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "antigravity",
+    "oauth",
+    "token-manager"
+  ],
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/fs-extra": "^11.0.4"
   },
   "peerDependencies": {
     "typescript": "^5"

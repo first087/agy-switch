@@ -1,15 +1,44 @@
-# agy-switch
+# agys
 
-To install dependencies:
+Manage multiple antigravity-cli oauth token accounts with ease.
+
+## Features
+
+- **Add Accounts**: Easily add and name new OAuth token accounts.
+- **List Accounts**: View all managed accounts and see which one is currently active.
+- **Interactive Switch**: Switch between accounts using an interactive CLI menu.
+- **Persistent State**: Keeps track of the active account automatically.
+
+## Installation
 
 ```bash
-bun install
+npm install -g agys
+# or
+bun install -g agys
 ```
 
-To run:
+## Usage
 
+### Add a new account
 ```bash
-bun run index.ts
+agys add <name>
 ```
 
-This project was created using `bun init` in bun v1.3.14. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+### List all accounts
+```bash
+agys list
+# or
+agys ls
+```
+
+### Switch account
+Run `agys` without any arguments to open the interactive selection menu:
+```bash
+agys
+# or explicitly
+agys switch
+```
+
+## License
+
+MIT
