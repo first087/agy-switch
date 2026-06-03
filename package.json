@@ -1,6 +1,6 @@
 {
   "name": "@first087/agys",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Manage multiple antigravity-cli oauth token accounts",
   "author": "Artit Kiuwilai",
   "repository": {
@@ -13,11 +13,10 @@
   "module": "index.ts",
   "type": "module",
   "bin": {
-    "agys": "index.ts"
+    "agys": "dist/index.js"
   },
   "files": [
-    "src",
-    "index.ts"
+    "dist"
   ],
   "scripts": {
     "start": "bun run index.ts",
