@@ -3,7 +3,7 @@ import { Command } from 'commander';
 import packageJson from './package.json' with { type: 'json' };
 import { addCommand } from './src/commands/add';
 import { listCommand } from './src/commands/list';
-import { switchCommand } from './src/commands/switch';
+import { switchCommand, handleSwitch } from './src/commands/switch';
 
 const program = new Command();
 
@@ -19,7 +19,7 @@ program.addCommand(switchCommand);
 // Set default action if no command is provided
 program.action(async () => {
   if (program.args.length === 0) {
-    await switchCommand.parseAsync(['node', 'agys', 'switch']);
+    await handleSwitch();
   }
 });
 

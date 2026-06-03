@@ -23,7 +23,23 @@ export async function getAccounts() {
 }
 
 export async function getActiveAccount() {
-  // Logic to determine active account based on token content match
-  // For now, this is a placeholder implementation
-  return 'test';
+  await ensureConfigDir();
+  
+  if (!fs.existsSync(TOKEN_PATH)) {
+    return null;
+  }
+
+  const activeTokenContent = await fs.readFile(TOKEN_PATH, 'utf-8');
+  const accounts = await getAccounts();
+
+  for (const account of accounts) {
+    const accountTokenPath = path.join(CONFIG_DIR, account);
+    const accountTokenContent = await fs.readFile(accountTokenPath, 'utf-8');
+    
+    if (activeTokenContent === accountTokenContent) {
+      return account;
+    }
+  }
+
+  return null;
 }
