@@ -32,4 +32,3 @@ export const listCommand = new Command("list")
 export const lsCommand = new Command("ls")
   .description("Alias for list")
   .action(listAction);
-
