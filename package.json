@@ -1,9 +1,29 @@
 {
-  "name": "agy-switch",
+  "name": "agys",
   "version": "0.1.0",
+  "description": "Manage multiple antigravity-cli oauth token accounts",
   "module": "index.ts",
   "type": "module",
-  "private": true,
+  "bin": {
+    "agys": "index.ts"
+  },
+  "files": [
+    "src",
+    "index.ts"
+  ],
+  "scripts": {
+    "start": "bun run index.ts",
+    "test": "bun test",
+    "build": "bun build index.ts --outdir ./dist --target bun --minify",
+    "lint": "bunx tsc --noEmit"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "antigravity",
+    "oauth",
+    "token-manager"
+  ],
   "devDependencies": {
     "@types/bun": "latest"
   },
