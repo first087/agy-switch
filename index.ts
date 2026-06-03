@@ -9,7 +9,7 @@ const program = new Command();
 
 program
   .name('agys')
-  .description('Manage multiple antigravity-cli oauth token accounts')
+  .description(`${packageJson.description} (v${packageJson.version})`)
   .version(packageJson.version);
 
 program.addCommand(addCommand);
