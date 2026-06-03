@@ -36,6 +36,7 @@ export async function handleSwitch() {
       
       // Use fs.copy to copy from source to dest (token file)
       await fs.copy(sourcePath, destPath);
+      await fileOps.setActiveAccount(selectedAccount);
       console.log(chalk.green(`Switched to account '${selectedAccount}'`));
     } else {
       console.log(chalk.blue(`Already using account '${selectedAccount}'`));
