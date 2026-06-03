@@ -12,9 +12,9 @@ Manage multiple antigravity-cli oauth token accounts with ease.
 ## Installation
 
 ```bash
-npm install -g agys
+npm install -g @first087/agys
 # or
-bun install -g agys
+bun install -g @first087/agys
 ```
 
 ## Usage
