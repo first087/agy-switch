@@ -1,9 +1,16 @@
 import fs from 'fs-extra';
 import path from 'path';
 import os from 'os';
+import crypto from 'crypto';
 
 const CONFIG_DIR = path.join(os.homedir(), '.agys');
 const TOKEN_PATH = path.join(os.homedir(), '.gemini', 'antigravity-cli', 'antigravity-oauth-token');
+
+async function getFileHash(filePath: string): Promise<string> {
+  if (!fs.existsSync(filePath)) return '';
+  const fileContent = await fs.readFile(filePath);
+  return crypto.createHash('sha256').update(fileContent).digest('hex');
+}
 
 export async function ensureConfigDir() {
   await fs.ensureDir(CONFIG_DIR);
@@ -29,14 +36,14 @@ export async function getActiveAccount() {
     return null;
   }
 
-  const activeTokenContent = await fs.readFile(TOKEN_PATH, 'utf-8');
+  const activeTokenHash = await getFileHash(TOKEN_PATH);
   const accounts = await getAccounts();
 
   for (const account of accounts) {
     const accountTokenPath = path.join(CONFIG_DIR, account);
-    const accountTokenContent = await fs.readFile(accountTokenPath, 'utf-8');
+    const accountTokenHash = await getFileHash(accountTokenPath);
     
-    if (activeTokenContent === accountTokenContent) {
+    if (activeTokenHash === accountTokenHash) {
       return account;
     }
   }

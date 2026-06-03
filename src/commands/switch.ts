@@ -19,10 +19,13 @@ export async function handleSwitch() {
     const { selectedAccount } = await inquirer.prompt([{
         type: 'select',
         name: 'selectedAccount',
-        message: 'Select account:',
+        message: 'Select account (Press Ctrl+C to cancel):',
         choices: accounts,
         default: active
-      }]);
+      }]).catch(() => {
+        console.log(chalk.yellow("\nSwitching cancelled."));
+        process.exit(0);
+      });
 
     if (selectedAccount !== active) {
       const sourcePath = path.join(os.homedir(), '.agys', selectedAccount);
