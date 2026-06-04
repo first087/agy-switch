@@ -74,4 +74,8 @@ ${chalk.green("╰" + "─".repeat(message.length + 2) + "╯")}`;
 
 export const switchCommand = new Command("switch")
   .description("Switch to a different account")
-  .action(handleSwitch);
+  .allowExcessArguments(false)
+  .showHelpAfterError()
+  .action(async () => {
+    await handleSwitch();
+  });
