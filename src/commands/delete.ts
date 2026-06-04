@@ -22,11 +22,11 @@ ${chalk.red("│")} ${chalk.bold(message)} ${chalk.red("│")}
 ${chalk.red("╰" + "─".repeat(message.length + 2) + "╯")}`;
     console.log(header);
 
-    const { selectedAccount } = await inquirer.prompt([
+    const { selectedAccounts } = await inquirer.prompt([
       {
-        type: "select",
-        name: "selectedAccount",
-        message: "Account:",
+        type: "checkbox",
+        name: "selectedAccounts",
+        message: "Select accounts to delete (Press Space to select, Enter to confirm):",
         choices: accounts.map((account: string) => ({
           name:
             account === active
@@ -46,18 +46,25 @@ ${chalk.red("╰" + "─".repeat(message.length + 2) + "╯")}`;
       },
     ]);
 
+    if (selectedAccounts.length === 0) {
+      console.log(chalk.yellow("No accounts selected."));
+      return;
+    }
+
     const { confirm } = await inquirer.prompt([
       {
         type: "confirm",
         name: "confirm",
-        message: `Are you sure you want to delete '${selectedAccount}'?`,
+        message: `Are you sure you want to delete ${selectedAccounts.length} account(s)?`,
         default: false,
       },
     ]);
 
     if (confirm) {
-      await fileOps.deleteAccount(selectedAccount);
-      console.log(chalk.green(`Account '${selectedAccount}' deleted.`));
+      for (const account of selectedAccounts) {
+        await fileOps.deleteAccount(account);
+        console.log(chalk.green(`Account '${account}' deleted.`));
+      }
     } else {
       console.log(chalk.yellow("Delete cancelled."));
     }
