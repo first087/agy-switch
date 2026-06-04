@@ -1,5 +1,6 @@
 import { Command } from "commander";
 import * as fileOps from "../utils/fileOperations";
+import inquirer from 'inquirer';
 import chalk from "chalk";
 import os from "os";
 import path from "path";
@@ -30,6 +31,21 @@ export const addCommand = new Command("add")
         ),
       );
       return;
+    }
+
+    const accounts = await fileOps.getAccounts();
+    if (accounts.includes(name)) {
+      const { override } = await inquirer.prompt([{
+        type: 'confirm',
+        name: 'override',
+        message: `Account '${name}' already exists. Do you want to override it?`,
+        default: false
+      }]);
+
+      if (!override) {
+        console.log(chalk.yellow("Add cancelled."));
+        return;
+      }
     }
 
     try {
