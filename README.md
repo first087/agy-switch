@@ -3,7 +3,9 @@
 Manage multiple antigravity-cli oauth token accounts with ease.
 
 ## Prerequisites
+
 Before using `agys`, ensure you have generated your OAuth token:
+
 1. Open Antigravity CLI by running the command `agy` and complete the setup/login process.
 2. This ensures the token file is generated at `~/.gemini/antigravity-cli/antigravity-oauth-token`.
 

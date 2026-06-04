@@ -4,14 +4,19 @@ import packageJson from "./package.json" with { type: "json" };
 import { addCommand } from "./src/commands/add";
 import { listCommand, lsCommand } from "./src/commands/list";
 import { switchCommand, handleSwitch } from "./src/commands/switch";
-import { deleteCommand, removeCommand, delCommand, rmCommand } from "./src/commands/delete";
+import {
+  deleteCommand,
+  removeCommand,
+  delCommand,
+  rmCommand,
+} from "./src/commands/delete";
 
 const program = new Command();
 
 program
   .name("agys")
   .description(`${packageJson.description} (v${packageJson.version})`)
-  .version(packageJson.version, '-v, --version')
+  .version(packageJson.version, "-v, --version")
   .showHelpAfterError()
   .showSuggestionAfterError();
 

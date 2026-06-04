@@ -1,13 +1,15 @@
 import { Command } from "commander";
 import * as fileOps from "../utils/fileOperations";
-import inquirer from 'inquirer';
+import inquirer from "inquirer";
 import chalk from "chalk";
 import os from "os";
 import path from "path";
 import fs from "fs-extra";
 
 export const addCommand = new Command("add")
-  .description("Add a new account token. Ensure you have run 'agy' to login first.")
+  .description(
+    "Add a new account token. Ensure you have run 'agy' to login first.",
+  )
   .argument("[name]", "account name")
   .allowExcessArguments(false)
   .showHelpAfterError()
@@ -35,12 +37,14 @@ export const addCommand = new Command("add")
 
     const accounts = await fileOps.getAccounts();
     if (accounts.includes(name)) {
-      const { override } = await inquirer.prompt([{
-        type: 'confirm',
-        name: 'override',
-        message: `Account '${name}' already exists. Do you want to override it?`,
-        default: false
-      }]);
+      const { override } = await inquirer.prompt([
+        {
+          type: "confirm",
+          name: "override",
+          message: `Account '${name}' already exists. Do you want to override it?`,
+          default: false,
+        },
+      ]);
 
       if (!override) {
         console.log(chalk.yellow("Add cancelled."));
