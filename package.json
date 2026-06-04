@@ -22,7 +22,7 @@
     "start": "bun run index.ts",
     "test": "bun test src/**/*.test.ts",
     "test:e2e": "bun test src/e2e.spec.ts",
-    "build": "rm -rf dist && bun build index.ts --outdir ./dist --target bun --minify",
+    "build": "rm -rf dist && bun build index.ts --outdir ./dist --target node --minify",
     "lint": "bunx tsc --noEmit",
     "publish:npm": "bun run build && npm publish --access public"
   },
@@ -39,7 +39,7 @@
     "@types/node": "^25.9.1"
   },
   "peerDependencies": {
-    "typescript": "^6"
+    "typescript": "^6.0.3"
   },
   "dependencies": {
     "chalk": "^5.6.2",
