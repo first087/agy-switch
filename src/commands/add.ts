@@ -2,8 +2,8 @@ import { Command } from "commander";
 import * as fileOps from "../utils/fileOperations";
 import inquirer from "inquirer";
 import chalk from "chalk";
-import os from "os";
-import path from "path";
+import os from "node:os";
+import path from "node:path";
 import fs from "fs-extra";
 
 export const addCommand = new Command("add")

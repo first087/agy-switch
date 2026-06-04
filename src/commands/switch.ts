@@ -2,8 +2,8 @@ import { Command } from "commander";
 import * as fileOps from "../utils/fileOperations";
 import inquirer from "inquirer";
 import chalk from "chalk";
-import path from "path";
-import os from "os";
+import path from "node:path";
+import os from "node:os";
 import fs from "fs-extra";
 import packageJson from "../../package.json" with { type: "json" };
 
@@ -53,7 +53,9 @@ ${chalk.green("╰" + "─".repeat(message.length + 2) + "╯")}`;
         process.exit(0);
       });
 
-    if (selectedAccount !== active) {
+    if (selectedAccount === active) {
+      console.log(chalk.blue(`Already using account '${selectedAccount}'`));
+    } else {
       const sourcePath = path.join(os.homedir(), ".agys", selectedAccount);
       const destPath = path.join(
         os.homedir(),
@@ -66,8 +68,6 @@ ${chalk.green("╰" + "─".repeat(message.length + 2) + "╯")}`;
       await fs.copy(sourcePath, destPath);
       await fileOps.setActiveAccount(selectedAccount);
       console.log(chalk.green(`Switched to account '${selectedAccount}'`));
-    } else {
-      console.log(chalk.blue(`Already using account '${selectedAccount}'`));
     }
   } catch (error) {
     console.error(chalk.red("Failed to switch account:"), error);

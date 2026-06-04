@@ -1,6 +1,6 @@
 import fs from "fs-extra";
-import path from "path";
-import os from "os";
+import path from "node:path";
+import os from "node:os";
 
 const CONFIG_DIR = path.join(os.homedir(), ".agys");
 const ACTIVE_FILE = path.join(CONFIG_DIR, ".active");

@@ -8,9 +8,7 @@ spyOn(fileOps, "getActiveAccount").mockImplementation(() =>
   Promise.resolve("test"),
 );
 spyOn(fileOps, "deleteAccount").mockImplementation(async (name: string) => {
-  if (name === "test")
-    throw new Error(`Cannot delete the active account: ${name}`);
-  return Promise.resolve();
+  if (name === "test") throw new Error(`Cannot delete the active account: ${name}`);
 });
 
 describe("deleteAccount logic", () => {
