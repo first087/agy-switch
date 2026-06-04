@@ -31,8 +31,8 @@ describe("Global functionality", () => {
     expect(exitCode).toBe(0);
   });
 
-  test("shows version on -V", async () => {
-    const { stdout, exitCode } = await runCli(["-V"]);
+  test("shows version on -v", async () => {
+    const { stdout, exitCode } = await runCli(["-v"]);
     expect(stdout.trim()).toBe(packageJson.version);
     expect(exitCode).toBe(0);
   });
