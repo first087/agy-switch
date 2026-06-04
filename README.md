@@ -17,6 +17,10 @@ Before using `agys`, ensure you have generated your OAuth token:
 - **Delete Accounts**: Securely delete account tokens with confirmation and active account protection.
 - **Persistent State**: Keeps track of the active account automatically.
 
+## Changelog
+
+See the [CHANGELOG.md](CHANGELOG.md) for a detailed list of changes and release history.
+
 ## Installation
 
 ```bash
