@@ -67,6 +67,16 @@ agys del
 agys remove
 ```
 
+## Compatibility
+
+`agys` is primarily developed and tested on Linux (bash/sh).
+
+While it is designed to be cross-platform using Node.js/Bun, it has not been extensively tested on other environments, such as:
+- **Operating Systems**: macOS, Windows (Command Prompt, PowerShell).
+- **Shells**: Other shells or Windows-specific shells.
+
+If you encounter any issues in your environment, or if you have tested `agys` and it works as expected, please [open an issue](https://github.com/first087/agy-switch/issues) with details about your OS and Shell. Contributions to improve cross-platform support are highly welcome!
+
 ## Security & Privacy
 
 `agys` is an open-source tool. Your OAuth tokens are stored locally on your machine within the `~/.agys/` directory for account switching purposes. We do not transmit, store, or share your tokens with any external servers. You are welcome to inspect the source code to verify our privacy practices.
