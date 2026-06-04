@@ -2,6 +2,11 @@
 
 Manage multiple antigravity-cli oauth token accounts with ease.
 
+## Prerequisites
+Before using `agys`, ensure you have generated your OAuth token:
+1. Open Antigravity CLI by running the command `agy` and complete the setup/login process.
+2. This ensures the token file is generated at `~/.gemini/antigravity-cli/antigravity-oauth-token`.
+
 ## Features
 
 - **Add Accounts**: Easily add and name new OAuth token accounts.
@@ -43,6 +48,6 @@ agys
 agys switch
 ```
 
-## License
+## Security & Privacy
 
-MIT
+`agys` is an open-source tool. Your OAuth tokens are stored locally on your machine within the `~/.agys/` directory for account switching purposes. We do not transmit, store, or share your tokens with any external servers. You are welcome to inspect the source code to verify our privacy practices.

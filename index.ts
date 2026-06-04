@@ -33,6 +33,11 @@ program.addHelpText(
   "after",
   `
 GitHub Repository: https://github.com/first087/agy-switch
+
+Security & Privacy:
+  This is an open-source tool. Your OAuth tokens are stored locally in ~/.agys/
+  for account switching. We do not transmit or share your tokens with any servers.
+  You are welcome to inspect the source code to verify our privacy practices.
 `,
 );
 
