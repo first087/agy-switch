@@ -10,7 +10,7 @@ const program = new Command();
 program
   .name("agys")
   .description(`${packageJson.description} (v${packageJson.version})`)
-  .version(packageJson.version)
+  .version(packageJson.version, '-v, --version')
   .showHelpAfterError()
   .showSuggestionAfterError();
 
