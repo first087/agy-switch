@@ -32,12 +32,14 @@ ${chalk.green("╰" + "─".repeat(message.length + 2) + "╯")}`;
         {
           type: "select",
           name: "selectedAccount",
-          message: "Account:",
+          message: "Select account to switch:",
           choices: accounts.map((account: string) => ({
             name: account === active ? `${account} (active)` : account,
             value: account,
           })),
           default: active,
+          pageSize: 10,
+          loop: false,
           theme: {
             icon: { cursor: "👉" },
             style: {
@@ -74,4 +76,8 @@ ${chalk.green("╰" + "─".repeat(message.length + 2) + "╯")}`;
 
 export const switchCommand = new Command("switch")
   .description("Switch to a different account")
-  .action(handleSwitch);
+  .allowExcessArguments(false)
+  .showHelpAfterError()
+  .action(async () => {
+    await handleSwitch();
+  });

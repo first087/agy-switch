@@ -7,9 +7,7 @@ spyOn(fileOps, "getAccounts").mockImplementation(() =>
   Promise.resolve(["test", "test2", "test3"]),
 );
 // @ts-ignore
-spyOn(inquirer, "prompt").mockImplementation(() =>
-  Promise.resolve({ selectedAccount: "test2" }) as any,
-);
+spyOn(inquirer, "prompt").mockImplementation(() => Promise.resolve({ selectedAccount: "test2" }));
 
 test("switch interactive menu returns selected account", async () => {
   const accounts = await fileOps.getAccounts();

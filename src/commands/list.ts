@@ -27,8 +27,16 @@ async function listAction() {
 
 export const listCommand = new Command("list")
   .description("List all accounts")
-  .action(listAction);
+  .allowExcessArguments(false)
+  .showHelpAfterError()
+  .action(async () => {
+    await listAction();
+  });
 
 export const lsCommand = new Command("ls")
   .description("Alias for list")
-  .action(listAction);
+  .allowExcessArguments(false)
+  .showHelpAfterError()
+  .action(async () => {
+    await listAction();
+  });

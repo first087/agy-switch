@@ -19,6 +19,17 @@ export async function copyTokenToAccount(
   return destPath;
 }
 
+export async function deleteAccount(accountName: string) {
+  const active = await getActiveAccount();
+  if (accountName === active) {
+    throw new Error(`Cannot delete the active account: ${accountName}`);
+  }
+  const accountPath = path.join(CONFIG_DIR, accountName);
+  if (await fs.pathExists(accountPath)) {
+    await fs.remove(accountPath);
+  }
+}
+
 export async function getAccounts() {
   await ensureConfigDir();
   const files = await fs.readdir(CONFIG_DIR);
