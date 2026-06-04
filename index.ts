@@ -4,6 +4,7 @@ import packageJson from "./package.json" with { type: "json" };
 import { addCommand } from "./src/commands/add";
 import { listCommand, lsCommand } from "./src/commands/list";
 import { switchCommand, handleSwitch } from "./src/commands/switch";
+import { deleteCommand, removeCommand, delCommand, rmCommand } from "./src/commands/delete";
 
 const program = new Command();
 
@@ -18,6 +19,10 @@ program.addCommand(addCommand);
 program.addCommand(listCommand);
 program.addCommand(lsCommand);
 program.addCommand(switchCommand);
+program.addCommand(deleteCommand);
+program.addCommand(removeCommand);
+program.addCommand(delCommand);
+program.addCommand(rmCommand);
 
 // Set description for switch command explicitly
 switchCommand.description(
