@@ -5,22 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.4.0] - 2026-06-04
 
 ### Added
 
 - **Delete Account**: Added `delete` command (with aliases `rm`, `del`, `remove`) to securely delete account tokens.
-  - Interactive selection menu with multiple choice support.
-  - Prevents deletion of the currently active account.
-  - Requires confirmation before deletion.
-  - Standardized UI (colors, framed header, status indicators) consistent with `switch` command.
+  - Interactive multiple-choice menu (`checkbox` prompt).
+  - Active account protection (prevents selecting the active account).
+  - Deletion confirmation prompt.
+- **UX Improvements**:
+  - Standardized interactive menus (`pageSize: 10`, `loop: false`) for `switch` and `delete` commands.
+  - Improved `switch` menu prompt message for better clarity.
+- **Security & Privacy**: Added "Security & Privacy" documentation to `README.md` and CLI help menu.
+- **Onboarding**: Added "Prerequisites" section to `README.md` and added source token file validation in `add` command.
+- **Testing**: Added comprehensive E2E test suite (`src/e2e.spec.ts`) and `test:e2e` script.
 
 ### Changed
 
-- **CLI UX**:
-  - Updated prompt message in `switch` command for better clarity ("Select account to switch").
-  - Standardized interactive menus (`pageSize: 10`, `loop: false`) for `switch` and `delete` commands.
-  - Standardized CLI exit codes.
+- **TypeScript**: Upgraded TypeScript to 6 and updated `tsconfig.json` (`types`, `noEmit`).
+- **CLI UX**: Standardized CLI exit codes and error handling for invalid commands.
 
 ### Fixed
 
