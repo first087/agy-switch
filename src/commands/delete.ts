@@ -28,9 +28,12 @@ ${chalk.red("╰" + "─".repeat(message.length + 2) + "╯")}`;
         name: "selectedAccount",
         message: "Account:",
         choices: accounts.map((account: string) => ({
-          name: account === active ? `${account} (active)` : account,
+          name: account === active ? `${account} (active - cannot delete)` : account,
           value: account,
+          disabled: account === active,
         })),
+        pageSize: 10,
+        loop: false,
         theme: {
           icon: { cursor: "👉" },
           style: {

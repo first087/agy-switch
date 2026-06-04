@@ -38,6 +38,8 @@ ${chalk.green("╰" + "─".repeat(message.length + 2) + "╯")}`;
             value: account,
           })),
           default: active,
+          pageSize: 10,
+          loop: false,
           theme: {
             icon: { cursor: "👉" },
             style: {
