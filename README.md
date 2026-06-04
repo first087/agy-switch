@@ -14,6 +14,7 @@ Before using `agys`, ensure you have generated your OAuth token:
 - **Add Accounts**: Easily add and name new OAuth token accounts.
 - **List Accounts**: View all managed accounts and see which one is currently active.
 - **Interactive Switch**: Switch between accounts using an interactive CLI menu.
+- **Delete Accounts**: Securely delete account tokens with confirmation and active account protection.
 - **Persistent State**: Keeps track of the active account automatically.
 
 ## Installation
@@ -48,6 +49,18 @@ Run `agys` without any arguments to open the interactive selection menu:
 agys
 # or explicitly
 agys switch
+```
+
+### Delete an account
+
+Run `agys delete` to open the interactive selection menu:
+
+```bash
+agys delete
+# or aliases
+agys rm
+agys del
+agys remove
 ```
 
 ## Security & Privacy
