@@ -10,7 +10,9 @@ const program = new Command();
 program
   .name("agys")
   .description(`${packageJson.description} (v${packageJson.version})`)
-  .version(packageJson.version);
+  .version(packageJson.version)
+  .showHelpAfterError()
+  .showSuggestionAfterError();
 
 program.addCommand(addCommand);
 program.addCommand(listCommand);
@@ -24,9 +26,7 @@ switchCommand.description(
 
 // Set default action if no command is provided
 program.action(async () => {
-  if (program.args.length === 0) {
-    await handleSwitch();
-  }
+  await handleSwitch();
 });
 
 program.addHelpText(

@@ -20,7 +20,8 @@
   ],
   "scripts": {
     "start": "bun run index.ts",
-    "test": "bun test",
+    "test": "bun test src/**/*.test.ts",
+    "test:e2e": "bun test src/e2e.spec.ts",
     "build": "rm -rf dist && bun build index.ts --outdir ./dist --target bun --minify",
     "lint": "bunx tsc --noEmit",
     "publish:npm": "bun run build && npm publish --access public"

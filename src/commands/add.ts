@@ -7,7 +7,9 @@ import fs from "fs-extra";
 
 export const addCommand = new Command("add")
   .description("Add a new account token. Ensure you have run 'agy' to login first.")
-  .argument("[name]", "account name") // Change <name> to [name] to make it optional
+  .argument("[name]", "account name")
+  .allowExcessArguments(false)
+  .showHelpAfterError()
   .action(async (name) => {
     if (!name) {
       addCommand.outputHelp();
